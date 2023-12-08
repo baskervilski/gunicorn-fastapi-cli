@@ -1,0 +1,12 @@
+# Not pinned on purpose (to keep things simple)
+# For real-life use cases, I suggest pip-tools => pip-compile for dependency resolution and pinning
+
+PyYAML
+gunicorn
+uvicorn
+fastapi
+typer
+invoke
+rich
+loguru
+psutil
