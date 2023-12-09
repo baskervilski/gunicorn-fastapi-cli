@@ -1,14 +1,10 @@
 import importlib
 from gunicorn.app.base import BaseApplication
-import yaml
 import logging
 
+from fast_guni_app.config import load_config
+
 logger = logging.getLogger(__name__)
-
-
-def load_config(filename):
-    with open(filename) as cfg_file:
-        return yaml.safe_load(cfg_file)
 
 
 class CustomGunicorn(BaseApplication):

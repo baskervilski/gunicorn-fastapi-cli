@@ -4,7 +4,7 @@ import typer
 
 cli = typer.Typer()
 
-START_CMD_PATTERNS = ["start-server"]
+START_CMD_PATTERNS = ["start-server", "fgapp"]
 
 
 @cli.command()
@@ -18,7 +18,7 @@ def start(config_file: str, daemon: bool = False):
 def start_server(config_file):
     import os
     from fast_guni_app.server import CustomGunicorn
-    from fast_guni_app.server import load_config
+    from fast_guni_app.config import load_config
 
     config_dict = load_config(config_file)
     os.environ["HELLO_MESSAGE"] = config_dict["app"]["hello_message"]
