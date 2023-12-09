@@ -21,7 +21,7 @@ def start_server(config_file):
     from fast_guni_app.server import load_config
 
     config_dict = load_config(config_file)
-    os.environ["HELLO_MSG"] = config_dict["app"]["hello_message"]
+    os.environ["HELLO_MESSAGE"] = config_dict["app"]["hello_message"]
     server = CustomGunicorn(config_file=config_file)
     server.run()
 

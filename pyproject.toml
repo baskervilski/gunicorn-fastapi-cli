@@ -9,7 +9,6 @@ dependencies = [
     "typer",
     "invoke",
     "rich",
-    "loguru",
     "psutil",
 ]
 

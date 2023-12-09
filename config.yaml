@@ -4,4 +4,5 @@ server:
   wsgi_app: fast_guni_app.main:app
   workers: 2
   worker_class: uvicorn.workers.UvicornWorker
+  logger_class: fast_guni_app.logging.UnifiedLogger
   bind: 0.0.0.0:9876

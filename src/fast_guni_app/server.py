@@ -1,7 +1,9 @@
 import importlib
 from gunicorn.app.base import BaseApplication
 import yaml
-from loguru import logger
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 def load_config(filename):
@@ -43,6 +45,7 @@ class CustomGunicorn(BaseApplication):
             self.cfg.set(key.lower(), value)
 
     def load(self):
+        """Here we load the WSGI App"""
         module_name, app_name = self._options[self.__app_key].split(":")
         module = importlib.import_module(module_name)
         self.application = getattr(module, app_name)
