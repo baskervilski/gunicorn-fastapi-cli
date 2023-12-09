@@ -1,8 +1,8 @@
 BASE_PYTHON := python3.9
 
 .PHONY: venv
-venv: requirements.txt
+venv: pyproject.toml
 	rm -rf venv
 	$(BASE_PYTHON) -m venv venv
 	venv/bin/pip install --upgrade pip
-	venv/bin/python -m pip install -r requirements.txt
+	venv/bin/python -m pip install -e .

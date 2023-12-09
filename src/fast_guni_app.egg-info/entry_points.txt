@@ -1,2 +1,0 @@
-[console_scripts]
-fgapp = fast_guni_app.cli:cli
