@@ -1,28 +1,34 @@
+# Developed by: Nemanja Radojkovic, www.linkedin.com/in/radojkovic
+
 import time
 import typer
 
 
 cli = typer.Typer()
 
-START_CMD_PATTERNS = ["start-server", "fgapp"]
+START_CMD_PATTERNS = ["start-server", "fg-app"]
 
 
 @cli.command()
 def start(config_file: str, daemon: bool = False):
-    import invoke
+    import invoke  # importing when needed -> CLI more responsive
 
-    invoke.run(f"fgapp start-server {config_file}", disown=daemon, echo=True)
+    invoke.run(f"fg-app start-server {config_file}", disown=daemon, echo=True)
 
 
 @cli.command(hidden=True)
 def start_server(config_file):
     import os
+    import yaml
+    from fast_guni_app.api import app
     from fast_guni_app.server import CustomGunicorn
-    from fast_guni_app.config import load_config
 
-    config_dict = load_config(config_file)
+    with open(config_file) as cfg_file:
+        config_dict = yaml.safe_load(cfg_file)
+
     os.environ["HELLO_MESSAGE"] = config_dict["app"]["hello_message"]
-    server = CustomGunicorn(config_file=config_file)
+    print(f"Server options: {config_dict['server']}")
+    server = CustomGunicorn(app, **config_dict["server"])
     server.run()
 
 

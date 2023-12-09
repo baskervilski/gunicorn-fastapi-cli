@@ -1,6 +1,7 @@
 [project]
-name = "fast_guni_app"
+name = "fast_guni"
 version = "0.0.1"
+authors = [{name = "Nemanja Radojkovic, email = <www.linkedin.com/in/radojkovic>"}]
 dependencies = [
     "PyYAML",
     "gunicorn",
@@ -13,4 +14,4 @@ dependencies = [
 ]
 
 [project.scripts]
-fgapp = "fast_guni_app.cli:cli"
+fg-app = "fast_guni_app.cli:cli"

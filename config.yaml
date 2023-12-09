@@ -1,8 +1,7 @@
+# Developed by: Nemanja Radojkovic, www.linkedin.com/in/radojkovic
 app:
   hello_message: "Hello from the config!"
 server:
-  wsgi_app: fast_guni_app.api:app
   workers: 2
   worker_class: uvicorn.workers.UvicornWorker
   logger_class: fast_guni_app.logging.UnifiedLogger
-  bind: 0.0.0.0:9876

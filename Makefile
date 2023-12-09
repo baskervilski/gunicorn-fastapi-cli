@@ -1,3 +1,5 @@
+# Developed by: Nemanja Radojkovic, www.linkedin.com/in/radojkovic
+
 BASE_PYTHON := python3.9
 
 .PHONY: venv

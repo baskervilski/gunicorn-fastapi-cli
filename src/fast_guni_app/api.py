@@ -1,3 +1,5 @@
+# Developed by: Nemanja Radojkovic, www.linkedin.com/in/radojkovic
+
 import logging
 import os
 from fastapi import FastAPI

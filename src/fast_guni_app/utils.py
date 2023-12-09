@@ -1,3 +1,5 @@
+# Developed by: Nemanja Radojkovic, www.linkedin.com/in/radojkovic
+
 from typing import List, Optional
 import psutil
 from rich import print
