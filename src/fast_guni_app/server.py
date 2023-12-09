@@ -1,3 +1,4 @@
+import importlib
 from gunicorn.app.base import BaseApplication
 import yaml
 from loguru import logger
@@ -18,7 +19,7 @@ class CustomGunicorn(BaseApplication):
         self.config_file = kwargs.pop(self.__config_file_key, None)
         if self.config_file:
             logger.info(f"Config file: {self.config_file}")
-            cfg_dict = load_config(self.config_file)
+            cfg_dict = load_config(self.config_file)["server"]
             logger.info(f"Config file options: {cfg_dict}")
             self._options = cfg_dict
 
@@ -43,6 +44,6 @@ class CustomGunicorn(BaseApplication):
 
     def load(self):
         module_name, app_name = self._options[self.__app_key].split(":")
-        module = __import__(module_name)
+        module = importlib.import_module(module_name)
         self.application = getattr(module, app_name)
         return self.application

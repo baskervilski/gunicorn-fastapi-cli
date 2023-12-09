@@ -13,7 +13,7 @@ def find_processes(
     procs = []
 
     for p in psutil.process_iter():
-        cmd = p.cmdline()
+        cmd = " ".join(p.cmdline())
         if all(cp in cmd for cp in cmd_patterns) and all(
             np in cmd for np in name_patterns
         ):

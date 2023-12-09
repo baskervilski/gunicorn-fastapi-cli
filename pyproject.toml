@@ -1,0 +1,6 @@
+[project]
+name = "fast_guni_app"
+version = "0.0.1"
+
+[project.scripts]
+fgapp = "fast_guni_app.cli:cli"
