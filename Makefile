@@ -7,4 +7,4 @@ venv: pyproject.toml
 	rm -rf venv
 	$(BASE_PYTHON) -m venv venv
 	venv/bin/pip install --upgrade pip
-	venv/bin/python -m pip install -e .
+	venv/bin/python -m pip install -e .[dev]

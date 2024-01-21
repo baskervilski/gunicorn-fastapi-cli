@@ -13,5 +13,10 @@ dependencies = [
     "psutil",
 ]
 
+[project.optional-dependencies]
+dev = [
+    "pip-tools",
+]
+
 [project.scripts]
 fg-app = "fast_guni_app.cli:cli"
