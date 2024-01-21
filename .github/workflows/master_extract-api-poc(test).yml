@@ -29,8 +29,8 @@ jobs:
       
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
-          pip install .
+          venv/bin/pip install -r requirements.txt
+          venv/bin/pip install .
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
