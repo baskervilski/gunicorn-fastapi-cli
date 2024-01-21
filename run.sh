@@ -1,6 +1,6 @@
 #!/bin/bash
 
-venv/bin/gunicorn fast_guni_app.api:app \
+./venv/bin/gunicorn fast_guni_app.api:app \
     --workers=1 \
     --bind=0.0.0.0 \
     --worker-class uvicorn.workers.UvicornWorker \
